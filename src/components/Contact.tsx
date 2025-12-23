@@ -17,13 +17,13 @@ const Contact = () => {
 
           <div className="space-y-6">
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:yusufsuhail011@gmail.com"
               className="flex items-center text-xl font-medium hover:text-gray-600 transition-colors group"
             >
               <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-full mr-4 group-hover:bg-black group-hover:text-white transition-colors duration-300">
                 <Mail size={20} />
               </div>
-              your-email@example.com
+              yusufsuhail011@gmail.com
             </a>
             {/* More contact options can go here */}
           </div>
@@ -32,7 +32,7 @@ const Contact = () => {
         <div className="bg-gray-50 p-8 md:p-12 rounded-3xl">
           <form
             className="space-y-6"
-            action="mailto:your-email@example.com"
+            action="mailto:yusufsuhail011@gmail.com"
             method="post"
             encType="text/plain"
           >
