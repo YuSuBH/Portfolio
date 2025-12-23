@@ -25,7 +25,7 @@ const Contact = () => {
               </div>
               yusufsuhail011@gmail.com
             </a>
-            {/* More contact options can go here */}
+            {/* More contact options */}
           </div>
         </div>
 

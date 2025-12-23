@@ -1,13 +1,69 @@
+import { useState } from "react";
 import Section from "./Section";
 import { ArrowRight, Github, Linkedin, CodeXml } from "lucide-react";
 
+const COLORS = [
+  "#FF3366", // Hot pink
+  "#00FF88", // Bright green
+  "#FFEE00", // Bright yellow
+  "#00D4FF", // Cyan
+  "#FF6B6B", // Coral red
+  "#FF00FF", // Magenta
+  "#00FF00", // Lime
+  "#FF9500", // Orange
+  "#00FFFF", // Aqua
+  "#FF4081", // Pink
+  "#7C4DFF", // Bright purple
+  "#FFFF00", // Yellow
+  "#00E676", // Green
+  "#FF5722", // Deep orange
+  "#E040FB", // Purple
+];
+
+const FONTS = [
+  "Georgia, serif",
+  "Courier New, monospace",
+  "Comic Sans MS, cursive",
+  "Impact, sans-serif",
+  "Trebuchet MS, sans-serif",
+  "Verdana, sans-serif",
+  "Lucida Console, monospace",
+  "Palatino Linotype, serif",
+  "Arial Black, sans-serif",
+  "Times New Roman, serif",
+];
+
 const Hero = () => {
+  const name = "Yusuf Suhail";
+  const [letterStyles, setLetterStyles] = useState<
+    { color: string; fontFamily: string }[]
+  >(name.split("").map(() => ({ color: "inherit", fontFamily: "inherit" })));
+
+  const handleLetterHover = (index: number) => {
+    const randomColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const randomFont = FONTS[Math.floor(Math.random() * FONTS.length)];
+
+    setLetterStyles((prev) => {
+      const newStyles = [...prev];
+      newStyles[index] = { color: randomColor, fontFamily: randomFont };
+      return newStyles;
+    });
+  };
+
+  const handleLetterLeave = (index: number) => {
+    setLetterStyles((prev) => {
+      const newStyles = [...prev];
+      newStyles[index] = { color: "inherit", fontFamily: "inherit" };
+      return newStyles;
+    });
+  };
+
   return (
     <Section
       id="home"
       className="flex items-center justify-center min-h-screen pt-16"
     >
-      {/* Subtle Background Pattern */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       </div>
@@ -15,7 +71,27 @@ const Hero = () => {
       <div className="grid md:grid-cols-2 gap-12 items-center relative z-10 w-full max-w-8xl mx-auto">
         <div className="text-left">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
-            Yusuf Suhail
+            {name.split("").map((letter, index) => (
+              <span
+                key={index}
+                onMouseEnter={() => handleLetterHover(index)}
+                onMouseLeave={() => handleLetterLeave(index)}
+                style={{
+                  color: letterStyles[index].color,
+                  fontFamily: letterStyles[index].fontFamily,
+                  transition: "color 0.2s ease, font-family 0.5s ease",
+                  cursor: "default",
+                  display: "inline-block",
+                  textAlign: "center",
+                  width: [" ", "i", "l"].includes(letter) ? "0.3em" : "0.57em",
+                  height: "1.2em",
+                  lineHeight: "1.2em",
+                  verticalAlign: "top",
+                }}
+              >
+                {letter}
+              </span>
+            ))}
           </h1>
           <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mb-10 leading-relaxed">
             Building modern web experiences with a passion for clean design,
