@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
+interface NavbarProps {
+  onMenuToggle?: (isOpen: boolean) => void;
+}
+
+const Navbar = ({ onMenuToggle }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -12,6 +16,22 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Lock body scroll when menu is open
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Notify parent component
+    onMenuToggle?.(isOpen);
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, onMenuToggle]);
 
   const navLinks = [
     { name: "Home", href: "#home" },
