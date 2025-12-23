@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -13,7 +14,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <>
+    <ThemeProvider>
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
 
       <div
@@ -21,7 +22,7 @@ function App() {
           isLoaded ? "opacity-100" : "opacity-0"
         } bg-background text-foreground`}
       >
-        <div className="min-h-screen bg-white text-black selection:bg-black selection:text-white">
+        <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
           <Navbar onMenuToggle={setIsMenuOpen} />
 
           {/* Backdrop blur overlay for mobile menu */}
@@ -41,7 +42,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 

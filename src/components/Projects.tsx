@@ -55,7 +55,7 @@ const Projects = () => {
   ];
 
   return (
-    <Section id="projects" className="bg-white">
+    <Section id="projects" className="bg-white dark:bg-black">
       <h2 className="text-4xl font-bold tracking-tighter mb-12">
         Selected Projects
       </h2>
@@ -63,9 +63,9 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow bg-white"
+            className="group border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow bg-white dark:bg-gray-900"
           >
-            <div className="aspect-video bg-gray-100 relative overflow-hidden flex items-center justify-center">
+            <div className="aspect-video bg-gray-100 dark:bg-gray-800 relative overflow-hidden flex items-center justify-center">
               {project.image ? (
                 <img
                   src={project.image}
@@ -73,21 +73,23 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
-                <span className="text-gray-400 font-medium">Project Image</span>
+                <span className="text-gray-400 dark:text-gray-500 font-medium">
+                  Project Image
+                </span>
               )}
             </div>
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
                 {project.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed line-clamp-3">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 bg-gray-50 text-xs font-medium text-gray-600 rounded-full"
+                    className="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-xs font-medium text-gray-600 dark:text-gray-400 rounded-full"
                   >
                     {t}
                   </span>
@@ -98,7 +100,7 @@ const Projects = () => {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-sm font-semibold hover:text-gray-600 transition-colors"
+                  className="flex items-center text-sm font-semibold hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
                 >
                   Live Demo <ExternalLink size={16} className="ml-1" />
                 </a>
@@ -106,7 +108,7 @@ const Projects = () => {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-sm font-semibold hover:text-gray-600 transition-colors"
+                  className="flex items-center text-sm font-semibold hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
                 >
                   GitHub <Github size={16} className="ml-1" />
                 </a>

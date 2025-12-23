@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -8,13 +10,12 @@
   --border: #e5e7eb;
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Commenting out automatic dark mode for now to enforce black & white theme control 
-     or we can leave it if we want distinct dark mode. 
-     The user said "theme should be black and white most of the time". 
-     Let's define a clean base and maybe force light/dark or handle it via classes.
-     For "black and white", usually means high contrast. 
-  */
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --border: #374151;
 }
 
 html {

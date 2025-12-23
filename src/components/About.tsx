@@ -15,11 +15,11 @@ const About = () => {
   };
 
   return (
-    <Section id="about" className="bg-gray-50">
+    <Section id="about" className="bg-gray-50 dark:bg-gray-900">
       <div className="grid md:grid-cols-2 gap-16">
         <div>
           <h2 className="text-4xl font-bold tracking-tighter mb-8">About Me</h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-6">
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
             I am a passionate developer who enjoys building modern web
             applications and learning new things every day. Learning new
             technologies and continuously improving my skills to deliver
@@ -35,11 +35,15 @@ const About = () => {
                 <h4 className="text-lg font-semibold">
                   BE in Computer Science
                 </h4>
-                <p className="text-gray-500">KVGCE, Sullia (2023-2027)</p>
+                <p className="text-gray-500 dark:text-gray-400">
+                  KVGCE, Sullia (2023-2027)
+                </p>
               </div>
               <div>
                 <h4 className="text-lg font-semibold">PUC</h4>
-                <p className="text-gray-500">NMPUC, Sullia (2021-2023)</p>
+                <p className="text-gray-500 dark:text-gray-400">
+                  NMPUC, Sullia (2021-2023)
+                </p>
               </div>
             </div>
           </div>
@@ -56,7 +60,7 @@ const About = () => {
                 {skills.Frontend.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium"
+                    className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-medium"
                   >
                     {skill}
                   </span>
@@ -69,7 +73,7 @@ const About = () => {
                 {skills.Backend.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium"
+                    className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-medium"
                   >
                     {skill}
                   </span>
