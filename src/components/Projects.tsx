@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "./Section";
 import { ExternalLink, Github } from "lucide-react";
 
@@ -11,7 +10,7 @@ const Projects = () => {
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js"],
       live: "https://im-a-iger.vercel.app/",
       github: "https://github.com/YuSuBH/imAIger",
-      image: "", // Placeholder for now
+      image: "/imaiger.webp",
     },
     {
       title: "PlanTraverse",
@@ -26,7 +25,7 @@ const Projects = () => {
       ],
       live: "https://plan-traverse.vercel.app/",
       github: "https://github.com/YuSuBH/PlanTraverse",
-      image: "",
+      image: "/plantraverse.webp",
     },
     {
       title: "BlogSpot",
@@ -35,7 +34,7 @@ const Projects = () => {
       tech: ["React", "Firebase", "Google OAuth"],
       live: "https://react-sm-d160d.web.app/",
       github: "https://github.com/YuSuBH/BlogSpot",
-      image: "",
+      image: "/blogspot.webp",
     },
     {
       title: "CodeSync",
@@ -51,7 +50,7 @@ const Projects = () => {
       ],
       live: "https://codesync-ffe4.onrender.com/",
       github: "https://github.com/YuSuBH/CodeSync",
-      image: "",
+      image: "/codesync.webp",
     },
   ];
 
@@ -66,9 +65,16 @@ const Projects = () => {
             key={index}
             className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow bg-white"
           >
-            <div className="aspect-video bg-gray-100 relative items-center justify-center flex">
-              <span className="text-gray-400 font-medium">Project Image</span>
-              {/* Image placeholder - can be replaced with actual <img> tag later */}
+            <div className="aspect-video bg-gray-100 relative overflow-hidden flex items-center justify-center">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <span className="text-gray-400 font-medium">Project Image</span>
+              )}
             </div>
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
