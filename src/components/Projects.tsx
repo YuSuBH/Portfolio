@@ -56,9 +56,7 @@ const Projects = () => {
 
   return (
     <Section id="projects" className="bg-white dark:bg-black">
-      <h2 className="text-4xl font-bold tracking-tighter mb-12">
-        Selected Projects
-      </h2>
+      <h2 className="text-4xl font-bold tracking-tighter mb-12">Projects</h2>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <div
