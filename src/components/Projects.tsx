@@ -13,19 +13,20 @@ const Projects = () => {
       image: "/imaiger.webp",
     },
     {
-      title: "PlanTraverse",
+      title: "OneCon",
       description:
-        "A web based application to plan trips featuring map representing the locations. Also include a community map where users share their experiances of places they visited.",
+        "OneCon is a powerful tool designed to streamline the process of creating and managing AI-powered websites. Includes features like live preview, live manual edit, instant publish and more.",
       tech: [
-        "Next.js",
+        "React",
         "Tailwind CSS",
         "PostgreSQL",
-        "Prisma ORM",
-        "GitHub OAuth",
+        "Node.js",
+        "Express",
+        "Better Auth",
       ],
-      live: "https://plan-traverse.vercel.app/",
-      github: "https://github.com/YuSuBH/PlanTraverse",
-      image: "/plantraverse.webp",
+      live: "https://one-con.vercel.app/",
+      github: "https://github.com/YuSuBH/OneCon",
+      image: "/onecon.webp",
     },
     {
       title: "BlogSpot",
