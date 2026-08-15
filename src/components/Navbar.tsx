@@ -39,6 +39,7 @@ const Navbar = ({ onMenuToggle }: NavbarProps) => {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
+    { name: "Pull Requests", href: "#prs" },
     { name: "Contact", href: "#contact" },
   ];
 
