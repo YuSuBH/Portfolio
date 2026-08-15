@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Section from "./Section";
 import { ArrowRight, Github, Linkedin, CodeXml } from "lucide-react";
+import MatrixRain from "./MatrixRain";
 
 const COLORS = [
   "#FF3366", // Hot pink
@@ -63,12 +64,14 @@ const Hero = () => {
       id="home"
       className="flex items-center justify-center min-h-screen pt-16"
     >
-      {/* Background Pattern */}
+      {/* Background: Matrix Rain + gradient mask for text legibility */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <MatrixRain />
+        {/* Fade rain out on the left so text stays readable */}
+        <div className="matrix-rain-mask" />
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center relative z-10 w-full max-w-8xl mx-auto">
+      <div className="relative z-10 w-full max-w-3xl">
         <div className="text-left">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
             {name.split("").map((letter, index) => (
@@ -150,13 +153,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative h-full min-h-[400px] w-full hidden md:block rounded-2xl overflow-hidden shadow-2xl grayscale transition-all duration-500 hover:grayscale-0">
-          <img
-            src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop"
-            alt="Programming Code"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
+
       </div>
     </Section>
   );
