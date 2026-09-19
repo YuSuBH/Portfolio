@@ -1,7 +1,31 @@
+import { useState } from "react";
 import Section from "./Section";
 import { Mail, Send } from "lucide-react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    const body = `Hi Yusuf,\n\n${message}\n\n──────────────────────────\nSender Details:\nName: ${name}\nEmail: ${email}\n──────────────────────────`;
+    const subject = `${name} - Portfolio Contact`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yusufsuhail011@gmail.com&su=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, "_blank");
+  };
+
   return (
     <Section id="contact" className="bg-white dark:bg-black">
       <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start max-w-6xl mx-auto">
@@ -32,9 +56,7 @@ const Contact = () => {
         <div className="bg-gray-50 dark:bg-gray-900 p-8 md:p-12 rounded-3xl">
           <form
             className="space-y-6"
-            action="mailto:yusufsuhail011@gmail.com"
-            method="post"
-            encType="text/plain"
+            onSubmit={handleSubmit}
           >
             <div>
               <label
@@ -47,6 +69,10 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 className="w-full px-0 py-3 bg-transparent border-b-2 border-gray-200 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors text-lg"
                 placeholder="John Doe"
                 required
@@ -63,6 +89,10 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="w-full px-0 py-3 bg-transparent border-b-2 border-gray-200 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors text-lg"
                 placeholder="john@example.com"
                 required
@@ -79,6 +109,10 @@ const Contact = () => {
                 id="message"
                 name="message"
                 rows={4}
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 className="w-full px-0 py-3 bg-transparent border-b-2 border-gray-200 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors text-lg resize-none"
                 placeholder="Tell me about your project..."
                 required
