@@ -4,15 +4,6 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "imAIger",
-      description:
-        "An image editing application powered by AI where you ask to generate image or edit image. All happening in a single interface where the AI understands your query and responds with appropriate result.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js"],
-      live: "https://im-a-iger.vercel.app/",
-      github: "https://github.com/YuSuBH/imAIger",
-      image: "/imaiger.webp",
-    },
-    {
       title: "OneCon",
       description:
         "OneCon is a powerful tool designed to streamline the process of creating and managing AI-powered websites. Includes features like live preview, live manual edit, instant publish and more.",
@@ -29,6 +20,24 @@ const Projects = () => {
       image: "/onecon.webp",
     },
     {
+      title: "Collabo",
+      description:
+        "Collabo is a real-time collaborative coding platform enabling multi-user code editing, live presence and cursor tracking, AI-assisted debugging, multi-language code execution, role-based access control, and in-room chat, built with React, TypeScript, Node.js, Yjs, and Monaco Editor.",
+      tech: ["React", "Gemini API", "Node.js", "Yjs", "Monaco Editor"],
+      live: "https://collabo-wine.vercel.app/",
+      github: "https://github.com/YuSuBH/Collabo",
+      image: "/collabo.webp",
+    },
+    {
+      title: "imAIger",
+      description:
+        "An image editing application powered by AI where you ask to generate image or edit image. All happening in a single interface where the AI understands your query and responds with appropriate result.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js"],
+      live: "https://im-a-iger.vercel.app/",
+      github: "https://github.com/YuSuBH/imAIger",
+      image: "/imaiger.webp",
+    },
+    {
       title: "BlogSpot",
       description:
         "Twitter-like social platform allowing users to post messages, like, and comment on posts. Simple and responsive UI secured by google oauth.",
@@ -36,22 +45,6 @@ const Projects = () => {
       live: "https://react-sm-d160d.web.app/",
       github: "https://github.com/YuSuBH/BlogSpot",
       image: "/blogspot.webp",
-    },
-    {
-      title: "CodeSync",
-      description:
-        "Collaborative code editor enabling multiple users to write and edit code simultaneously in shared rooms using Socket.io. Live compiler supporting 5 languages, user cursor tracking and unique color assignment for each participant.",
-      tech: [
-        "React",
-        "Tailwind CSS",
-        "Node.js",
-        "Express.js",
-        "Socket.io",
-        "Monaco Editor",
-      ],
-      live: "https://codesync-ffe4.onrender.com/",
-      github: "https://github.com/YuSuBH/CodeSync",
-      image: "/codesync.webp",
     },
   ];
 
