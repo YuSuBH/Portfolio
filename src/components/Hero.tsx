@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Section from "./Section";
 import { ArrowRight, Github, Linkedin, CodeXml } from "lucide-react";
-import MatrixRain from "./MatrixRain";
+import BgAnimation from "./BgAnimation";
 
 const COLORS = [
   "#FF3366", // Hot pink
@@ -64,11 +64,9 @@ const Hero = () => {
       id="home"
       className="flex items-center justify-center min-h-screen pt-16"
     >
-      {/* Background: Matrix Rain + gradient mask for text legibility */}
+      {/* Background Kinetic Grid Animation */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <MatrixRain />
-        {/* Fade rain out on the left so text stays readable */}
-        <div className="matrix-rain-mask" />
+        <BgAnimation />
       </div>
 
       <div className="relative z-10 w-full max-w-3xl">
