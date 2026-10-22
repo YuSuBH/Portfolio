@@ -14,13 +14,12 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background text-foreground">
-        <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
           <Navbar onMenuToggle={setIsMenuOpen} />
 
-          {/* Backdrop blur overlay for mobile menu */}
           {isMenuOpen && (
             <div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden transition-all duration-300"
+              className="fixed inset-0 z-40 bg-black/10 md:hidden"
               style={{ top: "64px" }} // Start below navbar
             />
           )}

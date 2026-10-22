@@ -49,60 +49,54 @@ const Projects = () => {
   ];
 
   return (
-    <Section id="projects" className="bg-white dark:bg-black">
-      <h2 className="text-4xl font-bold tracking-tighter mb-12">Projects</h2>
-      <div className="grid md:grid-cols-2 gap-8">
+    <Section id="projects" className="border-t border-border">
+      <p className="section-kicker">03 / Selected work</p>
+      <h2 className="mb-10 text-3xl font-semibold tracking-tight">Projects</h2>
+      <div className="divide-y divide-border border-y border-border">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow bg-white dark:bg-gray-900"
+            className="group grid gap-6 py-8 md:grid-cols-[150px_1fr]"
           >
-            <div className="aspect-video bg-gray-100 dark:bg-gray-800 relative overflow-hidden flex items-center justify-center">
+            <div className="aspect-[4/3] overflow-hidden bg-muted">
               {project.image ? (
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0"
                 />
-              ) : (
-                <span className="text-gray-400 dark:text-gray-500 font-medium">
-                  Project Image
-                </span>
-              )}
+              ) : null}
             </div>
-            <div className="p-8">
-              <h3 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
+            <div>
+              <h3 className="mb-3 text-xl font-semibold tracking-tight">
                 {project.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed line-clamp-3">
+              <p className="mb-5 text-sm leading-7 text-muted-foreground">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="mb-6 flex flex-wrap gap-x-3 gap-y-1">
                 {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-xs font-medium text-gray-600 dark:text-gray-400 rounded-full"
-                  >
+                  <span key={t} className="text-xs text-muted-foreground">
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-5">
                 <a
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-sm font-semibold hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+                  className="flex items-center gap-1 text-xs font-medium hover:text-muted-foreground transition-colors"
                 >
-                  Live Demo <ExternalLink size={16} className="ml-1" />
+                  Live Demo <ExternalLink size={14} />
                 </a>
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-sm font-semibold hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+                  className="flex items-center gap-1 text-xs font-medium hover:text-muted-foreground transition-colors"
                 >
-                  GitHub <Github size={16} className="ml-1" />
+                  GitHub <Github size={14} />
                 </a>
               </div>
             </div>

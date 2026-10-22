@@ -16,10 +16,10 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section
       id={id}
-      className={`py-12 md:py-16 lg:py-24 min-h-max relative ${className}`}
+      className={`py-16 md:py-20 min-h-max relative ${className}`}
     >
       <div
-        className={`container mx-auto container-padding ${classNameContainer}`}
+        className={`mx-auto w-full max-w-3xl container-padding ${classNameContainer}`}
       >
         {children}
       </div>

@@ -66,42 +66,39 @@ const PullRequests = () => {
   };
 
   return (
-    <Section id="prs" className="bg-white dark:bg-black">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+    <Section id="prs" className="border-t border-border">
+      <div className="mb-10 flex flex-col gap-5">
         <div>
-          <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-4xl font-bold tracking-tighter">
+          <p className="section-kicker">04 / Open source</p>
+          <div className="flex items-center gap-3">
+            <h2 className="text-3xl font-semibold tracking-tight">
               Open Source Contributions
             </h2>
-            <span className="px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 flex items-center gap-1.5">
-              <GitPullRequest size={14} />
-              Live Activity
-            </span>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-xl text-sm md:text-base">
+          <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
             Actively contributing to the open-source ecosystem — collaborating on public repositories, shipping features, and solving real-world issues. Synced live from GitHub.
           </p>
         </div>
 
         {/* Filter controls & Refresh button */}
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex p-1 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="inline-flex border-b border-border">
             <button
               onClick={() => setFilter("all")}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+              className={`px-3 py-2 text-xs font-medium transition-colors ${
                 filter === "all"
-                  ? "bg-white dark:bg-gray-800 text-black dark:text-white shadow-sm"
-                  : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                  ? "border-b border-foreground text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               All ({prs.length})
             </button>
             <button
               onClick={() => setFilter("merged")}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors flex items-center gap-1 ${
+              className={`flex items-center gap-1 px-3 py-2 text-xs font-medium transition-colors ${
                 filter === "merged"
-                  ? "bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 shadow-sm"
-                  : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                  ? "border-b border-foreground text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <GitMerge size={12} />
@@ -109,10 +106,10 @@ const PullRequests = () => {
             </button>
             <button
               onClick={() => setFilter("open")}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors flex items-center gap-1 ${
+              className={`flex items-center gap-1 px-3 py-2 text-xs font-medium transition-colors ${
                 filter === "open"
-                  ? "bg-white dark:bg-gray-800 text-green-600 dark:text-green-400 shadow-sm"
-                  : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                  ? "border-b border-foreground text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <GitPullRequest size={12} />
@@ -123,13 +120,13 @@ const PullRequests = () => {
           <button
             onClick={() => loadPRs(true)}
             disabled={loading || isRefreshing}
-            className="p-2 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors text-gray-600 dark:text-gray-400"
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             title="Refresh GitHub PRs"
             aria-label="Refresh GitHub PRs"
           >
             <RefreshCw
               size={16}
-              className={isRefreshing ? "animate-spin text-purple-600 dark:text-purple-400" : ""}
+              className={isRefreshing ? "animate-spin text-foreground" : ""}
             />
           </button>
         </div>
@@ -137,34 +134,34 @@ const PullRequests = () => {
 
       {/* Loading Skeletons */}
       {loading ? (
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="divide-y divide-border border-y border-border">
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900/50 animate-pulse space-y-4"
+              className="space-y-4 border-y border-border py-6 animate-pulse"
             >
               <div className="flex justify-between items-center">
-                <div className="h-4 w-36 bg-gray-200 dark:bg-gray-800 rounded-md"></div>
-                <div className="h-6 w-20 bg-gray-200 dark:bg-gray-800 rounded-full"></div>
+                <div className="h-4 w-36 bg-muted"></div>
+                <div className="h-4 w-20 bg-muted"></div>
               </div>
-              <div className="h-5 w-3/4 bg-gray-200 dark:bg-gray-800 rounded-md"></div>
-              <div className="h-4 w-1/2 bg-gray-200 dark:bg-gray-800 rounded-md"></div>
+              <div className="h-5 w-3/4 bg-muted"></div>
+              <div className="h-4 w-1/2 bg-muted"></div>
             </div>
           ))}
         </div>
       ) : error ? (
-        <div className="p-8 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50/50 dark:bg-red-950/20 text-center space-y-3">
-          <AlertCircle className="mx-auto text-red-500" size={32} />
-          <p className="text-red-700 dark:text-red-300 font-medium">{error}</p>
+        <div className="space-y-3 border-y border-border py-8 text-center">
+          <AlertCircle className="mx-auto text-muted-foreground" size={28} />
+          <p className="font-medium">{error}</p>
           <button
             onClick={() => loadPRs(true)}
-            className="px-4 py-2 text-sm font-semibold rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors"
+            className="border-b border-foreground pb-1 text-sm font-medium hover:text-muted-foreground transition-colors"
           >
             Try Again
           </button>
         </div>
       ) : filteredPRs.length === 0 ? (
-        <div className="p-12 text-center border border-dashed border-gray-200 dark:border-gray-800 rounded-2xl">
+        <div className="border-y border-border py-12 text-center">
           <GitPullRequest size={36} className="mx-auto text-gray-400 mb-3" />
           <p className="text-gray-600 dark:text-gray-400 font-medium">
             No pull requests found matching the current filter.
@@ -175,33 +172,33 @@ const PullRequests = () => {
           {filteredPRs.map((pr) => (
             <div
               key={pr.id}
-              className="group p-6 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="group flex flex-col justify-between gap-4 py-6 transition-colors"
             >
               <div>
                 {/* Top Row: Repository & Status Badge */}
-                <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="mb-3 flex items-center justify-between gap-3">
                   <a
                     href={pr.repository_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors truncate max-w-[70%]"
+                    className="inline-flex max-w-[70%] items-center gap-1.5 truncate text-xs text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <FolderGit2 size={14} className="shrink-0 text-gray-400" />
                     <span className="truncate">{pr.repository_name}</span>
                   </a>
 
                   {pr.state === "merged" ? (
-                    <span className="shrink-0 px-2.5 py-1 text-xs font-semibold rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 flex items-center gap-1">
+                    <span                     className="flex shrink-0 items-center gap-1 text-xs font-medium text-muted-foreground">
                       <GitMerge size={12} />
                       Merged
                     </span>
                   ) : pr.state === "open" ? (
-                    <span className="shrink-0 px-2.5 py-1 text-xs font-semibold rounded-full bg-green-100 dark:bg-green-950/80 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800/60 flex items-center gap-1">
+                    <span                     className="flex shrink-0 items-center gap-1 text-xs font-medium text-muted-foreground">
                       <GitPullRequest size={12} />
                       Open
                     </span>
                   ) : (
-                    <span className="shrink-0 px-2.5 py-1 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                    <span                     className="flex shrink-0 items-center gap-1 text-xs font-medium text-muted-foreground">
                       <GitPullRequest size={12} />
                       Closed
                     </span>
@@ -209,7 +206,7 @@ const PullRequests = () => {
                 </div>
 
                 {/* PR Title */}
-                <h3 className="text-lg font-bold mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors leading-snug line-clamp-2">
+                <h3 className="mb-2 text-base font-medium leading-snug transition-colors group-hover:text-muted-foreground">
                   <a
                     href={pr.html_url}
                     target="_blank"
@@ -222,7 +219,7 @@ const PullRequests = () => {
               </div>
 
               {/* Bottom Row: Metadata & GitHub Link */}
-              <div className="pt-4 mt-4 border-t border-gray-100 dark:border-gray-800/60 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+              <div className="mt-2 flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1 font-mono">
                     <span className="text-gray-400">#</span>
@@ -244,7 +241,7 @@ const PullRequests = () => {
                   href={pr.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-semibold text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                  className="inline-flex items-center gap-1 font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   View PR <ExternalLink size={13} />
                 </a>

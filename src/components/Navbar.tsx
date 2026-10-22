@@ -47,21 +47,21 @@ const Navbar = ({ onMenuToggle }: NavbarProps) => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800"
-          : "bg-transparent"
+          ? "bg-background/90 backdrop-blur-sm border-b border-border"
+          : "bg-background"
       }`}
     >
-      <div className="container mx-auto container-padding flex justify-between items-center h-16 md:h-20">
-        <a href="#home" className="text-xl font-bold tracking-tighter">
+      <div className="mx-auto flex h-16 w-full max-w-3xl items-center justify-between container-padding md:h-20">
+        <a href="#home" className="text-base font-semibold tracking-tight">
           YS.
         </a>
 
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.name}
             </a>
@@ -69,7 +69,7 @@ const Navbar = ({ onMenuToggle }: NavbarProps) => {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
@@ -83,7 +83,7 @@ const Navbar = ({ onMenuToggle }: NavbarProps) => {
         <div className="flex md:hidden items-center space-x-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
@@ -93,20 +93,24 @@ const Navbar = ({ onMenuToggle }: NavbarProps) => {
             )}
           </button>
 
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            className="text-muted-foreground hover:text-foreground"
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-black border-b border-gray-100 dark:border-gray-800 p-4">
-          <div className="flex flex-col space-y-4">
+        <div className="absolute top-full left-0 w-full border-b border-border bg-background p-5 md:hidden">
+          <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
