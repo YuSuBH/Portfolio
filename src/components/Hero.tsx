@@ -2,15 +2,48 @@ import { useState } from "react";
 import Section from "./Section";
 import { ArrowUpRight, Github, Linkedin, CodeXml } from "lucide-react";
 
+const COLORS = [
+  "#ff3366",
+  "#00c878",
+  "#d9a400",
+  "#009dc2",
+  "#e05252",
+  "#c000c0",
+  "#5b43c6",
+];
+
+const FONTS = [
+  "Georgia, serif",
+  "Courier New, monospace",
+  "Trebuchet MS, sans-serif",
+  "Verdana, sans-serif",
+  "Palatino Linotype, serif",
+];
+
 const Hero = () => {
   const name = "Yusuf Suhail";
-  const [activeLetter, setActiveLetter] = useState<number | null>(null);
+  const [letterStyles, setLetterStyles] = useState<
+    { color: string; fontFamily: string }[]
+  >(name.split("").map(() => ({ color: "inherit", fontFamily: "inherit" })));
 
   const handleLetterHover = (index: number) => {
-    setActiveLetter(index);
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const fontFamily = FONTS[Math.floor(Math.random() * FONTS.length)];
+
+    setLetterStyles((previous) => {
+      const next = [...previous];
+      next[index] = { color, fontFamily };
+      return next;
+    });
   };
 
-  const handleLetterLeave = () => setActiveLetter(null);
+  const handleLetterLeave = (index: number) => {
+    setLetterStyles((previous) => {
+      const next = [...previous];
+      next[index] = { color: "inherit", fontFamily: "inherit" };
+      return next;
+    });
+  };
 
   return (
     <Section
@@ -25,12 +58,20 @@ const Hero = () => {
               <span
                 key={index}
                 onMouseEnter={() => handleLetterHover(index)}
-                onMouseLeave={handleLetterLeave}
-                className={`inline-block transition-transform duration-200 ${
-                  activeLetter === index ? "-translate-y-1" : ""
-                }`}
+                onMouseLeave={() => handleLetterLeave(index)}
+                className="inline-block cursor-default text-center align-top transition-[color,font-family] duration-200"
+                style={{
+                  ...letterStyles[index],
+                  width:
+                    letter === " "
+                      ? "0.36em"
+                      : ["i", "l"].includes(letter)
+                        ? "0.48em"
+                        : "0.62em",
+                  lineHeight: "1.1",
+                }}
               >
-                {letter}
+                {letter === " " ? "\u00a0" : letter}
               </span>
             ))}
           </h1>
