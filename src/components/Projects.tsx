@@ -56,9 +56,9 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group grid gap-6 py-8 md:grid-cols-[150px_1fr]"
+            className="group grid gap-6 py-8 md:grid-cols-[180px_1fr]"
           >
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
+            <div className="aspect-[4/3] overflow-hidden rounded-lg bg-muted">
               {project.image ? (
                 <img
                   src={project.image}
