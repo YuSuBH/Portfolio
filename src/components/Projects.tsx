@@ -52,13 +52,13 @@ const Projects = () => {
     <Section id="projects" className="border-t border-border">
       <p className="section-kicker">03 / Selected work</p>
       <h2 className="mb-10 text-3xl font-semibold tracking-tight">Projects</h2>
-      <div className="divide-y divide-border border-y border-border">
+      <div className="grid gap-x-8 gap-y-10 border-y border-border py-8 md:grid-cols-2">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group grid gap-6 py-8 md:grid-cols-[180px_1fr]"
+            className="group flex flex-col"
           >
-            <div className="aspect-[4/3] overflow-hidden rounded-lg bg-muted">
+            <div className="aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
               {project.image ? (
                 <img
                   src={project.image}
@@ -67,7 +67,7 @@ const Projects = () => {
                 />
               ) : null}
             </div>
-            <div>
+            <div className="pt-5">
               <h3 className="mb-3 text-xl font-semibold tracking-tight">
                 {project.title}
               </h3>
