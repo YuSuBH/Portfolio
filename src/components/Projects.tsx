@@ -24,7 +24,7 @@ const Projects = () => {
       description:
         "Collabo is a real-time collaborative coding platform enabling multi-user code editing, live presence and cursor tracking, AI-assisted debugging, multi-language code execution, role-based access control, and in-room chat, built with React, TypeScript, Node.js, Yjs, and Monaco Editor.",
       tech: ["React", "Gemini API", "Node.js", "Yjs", "Monaco Editor"],
-      live: "https://collabo-wine.vercel.app/",
+      live: "https://collabo.yusufsuhail.tech/",
       github: "https://github.com/YuSuBH/Collabo",
       image: "/collabo.webp",
     },
@@ -54,10 +54,7 @@ const Projects = () => {
       <h2 className="mb-10 text-3xl font-semibold tracking-tight">Projects</h2>
       <div className="grid gap-x-8 gap-y-10 border-y border-border py-8 md:grid-cols-2">
         {projects.map((project, index) => (
-          <div
-            key={index}
-            className="group flex flex-col"
-          >
+          <div key={index} className="group flex flex-col">
             <div className="aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
               {project.image ? (
                 <img
