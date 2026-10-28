@@ -13,10 +13,14 @@ const About = () => {
           <p className="section-kicker">01 / About</p>
           <h2 className="mb-6 text-3xl font-semibold tracking-tight">About Me</h2>
           <p className="max-w-2xl text-base leading-8 text-muted-foreground">
-            I am a passionate developer who enjoys building modern web
-            applications and learning new things every day. Learning new
-            technologies and continuously improving my skills to deliver
-            high-quality solutions.
+            I’m a full-stack developer who turns complex product ideas into
+            reliable, user-focused web applications. I work across React,
+            TypeScript, Node.js, and modern databases, with hands-on
+            experience building AI-powered tools, real-time collaboration
+            features, and responsive interfaces. I care about clean
+            architecture, thoughtful UX, and shipping maintainable software,
+            and I’m eager to contribute, learn quickly, and grow with a strong
+            engineering team.
           </p>
         </div>
 
