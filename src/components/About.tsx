@@ -1,9 +1,39 @@
 import Section from "./Section";
+import {
+  SiCss3,
+  SiExpress,
+  SiFirebase,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 const About = () => {
   const skills = {
-    Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
-    Backend: ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "Prisma ORM", "Firebase"],
+    Frontend: [
+      { name: "HTML", icon: SiHtml5 },
+      { name: "CSS", icon: SiCss3 },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "React", icon: SiReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+    Backend: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Prisma ORM", icon: SiPrisma },
+      { name: "Firebase", icon: SiFirebase },
+    ],
   };
 
   return (
@@ -31,7 +61,17 @@ const About = () => {
             {Object.entries(skills).map(([category, items]) => (
               <div key={category} className="grid gap-3 py-5 sm:grid-cols-[130px_1fr]">
                 <h3 className="text-sm font-medium">{category}</h3>
-                <p className="text-sm leading-7 text-muted-foreground">{items.join("  ·  ")}</p>
+                <div className="flex flex-wrap gap-x-5 gap-y-3">
+                  {items.map(({ name, icon: Icon }) => (
+                    <span
+                      key={name}
+                      className="flex items-center gap-2 text-sm text-muted-foreground"
+                    >
+                      <Icon aria-hidden="true" size={16} />
+                      {name}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
