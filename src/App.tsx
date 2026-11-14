@@ -13,8 +13,8 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background text-foreground">
-        <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      <div className="site-shell relative min-h-screen text-foreground">
+        <div className="relative z-10 min-h-screen text-foreground transition-colors duration-300">
           <Navbar onMenuToggle={setIsMenuOpen} />
 
           {isMenuOpen && (
