@@ -46,13 +46,12 @@ const Hero = () => {
   };
 
   return (
-    <Section
-      id="home"
-      className="pt-32 pb-20 md:pt-40 md:pb-28"
-    >
+    <Section id="home" className="pt-32 pb-20 md:pt-40 md:pb-28">
       <div className="w-full">
         <div className="text-left">
-          <p className="mb-5 text-sm font-medium text-muted-foreground">Software developer</p>
+          <p className="mb-5 text-sm font-medium text-muted-foreground">
+            Software developer
+          </p>
           <h1 className="mb-7 text-5xl font-semibold tracking-[-0.06em] md:text-7xl">
             {name.split("").map((letter, index) => (
               <span
@@ -123,8 +122,6 @@ const Hero = () => {
             </a>
           </div>
         </div>
-
-
       </div>
     </Section>
   );
